@@ -244,7 +244,7 @@ var saveToken = function () { return function (dispatch, getState) {
     if (pathname !== "/auth")
         return;
     axios_1.default
-        .post("https://www.reddit.com/api/v1/access_token", "grant_type=authorization_code&code=".concat(code, "&redirect_uri=https://my-reddit-mirror.onrender.com/auth"), {
+        .post("https://www.reddit.com/api/v1/access_token", "grant_type=authorization_code&code=".concat(code, "&redirect_uri=https://reddit-mirror.onrender.com/auth"), {
         auth: { username: CLIENT_ID, password: "ECtgFqN-8hFphYBAqVJaZBzU-VsRcQ" },
         headers: { "Content-type": "application/x-www-form-urlencoded" },
     })

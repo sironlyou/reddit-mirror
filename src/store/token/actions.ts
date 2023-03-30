@@ -33,7 +33,7 @@ export const saveToken = (): ThunkAction<void, RootState, unknown, Action<string
   if (pathname !== "/auth") return;
 
   axios
-    .post("https://www.reddit.com/api/v1/access_token", `grant_type=authorization_code&code=${code}&redirect_uri=https://my-reddit-mirror.onrender.com/auth`, {
+    .post("https://www.reddit.com/api/v1/access_token", `grant_type=authorization_code&code=${code}&redirect_uri=https://reddit-mirror.onrender.com/auth`, {
       auth: { username: CLIENT_ID, password: "ECtgFqN-8hFphYBAqVJaZBzU-VsRcQ" },
       headers: { "Content-type": "application/x-www-form-urlencoded" },
     })

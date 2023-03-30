@@ -31,8 +31,6 @@ export const saveToken = (): ThunkAction<void, RootState, unknown, Action<string
   let code = query.get("code");
   let pathname = document.location.pathname;
   if (pathname !== "/auth") return;
-  // console.log(code, "code");
-  // console.log(document.location, "document.location");
 
   axios
     .post("https://www.reddit.com/api/v1/access_token", `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/auth`, {
@@ -40,7 +38,6 @@ export const saveToken = (): ThunkAction<void, RootState, unknown, Action<string
       headers: { "Content-type": "application/x-www-form-urlencoded" },
     })
     .then(({ data }) => {
-      // console.log(data, "data");
       dispatch(setToken(data["access_token"]));
     })
     .catch((error) => {

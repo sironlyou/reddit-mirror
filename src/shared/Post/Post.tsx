@@ -14,8 +14,6 @@ export function Post({ onClose, selftext, id, title }: IPostProps) {
 
   const [openComment, setOpenComment] = useState<string>("");
 
-  console.log("comm", commentary);
-
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const loading = useStore($loading);

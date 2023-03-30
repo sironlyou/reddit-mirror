@@ -109,14 +109,12 @@ exports.updateComment = (0, effector_1.createEvent)();
 exports.$comment = (0, effector_1.createStore)("").on(exports.updateComment, function (_, newComment) { return newComment; });
 exports.updateCount = (0, effector_1.createEvent)();
 exports.$count = (0, effector_1.createStore)(0).on(exports.updateCount, function (_, newCount) { return newCount; });
-exports.$comment.watch(function (state) { return console.log("comment:", state); });
 exports.updateId = (0, effector_1.createEvent)();
 exports.$id = (0, effector_1.createStore)("").on(exports.updateId, function (_, newId) { return newId; });
 exports.updateSelftext = (0, effector_1.createEvent)();
 exports.$selftext = (0, effector_1.createStore)("").on(exports.updateSelftext, function (_, newsf) { return newsf; });
 exports.updateTitle = (0, effector_1.createEvent)();
 exports.$title = (0, effector_1.createStore)("").on(exports.updateTitle, function (_, newTitle) { return newTitle; });
-exports.$id.watch(function (state) { return console.log("id", state); });
 exports.updateLoading = (0, effector_1.createEvent)();
 exports.$loading = (0, effector_1.createStore)(false).on(exports.updateLoading, function (_, newLoading) { return newLoading; });
 
@@ -224,7 +222,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.saveToken = exports.setTokenError = exports.SET_TOKEN_ERROR = exports.setToken = exports.SET_TOKEN = void 0;
 var axios_1 = __importDefault(__webpack_require__(4));
-var CLIENT_ID = 'undefined';
+var CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 exports.SET_TOKEN = "SET_TOKEN";
 var setToken = function (value) { return ({
     type: exports.SET_TOKEN,
@@ -245,8 +243,6 @@ var saveToken = function () { return function (dispatch, getState) {
     var pathname = document.location.pathname;
     if (pathname !== "/auth")
         return;
-    // console.log(code, "code");
-    // console.log(document.location, "document.location");
     axios_1.default
         .post("https://www.reddit.com/api/v1/access_token", "grant_type=authorization_code&code=".concat(code, "&redirect_uri=http://localhost:3000/auth"), {
         auth: { username: CLIENT_ID, password: "ECtgFqN-8hFphYBAqVJaZBzU-VsRcQ" },
@@ -254,7 +250,6 @@ var saveToken = function () { return function (dispatch, getState) {
     })
         .then(function (_a) {
         var data = _a.data;
-        // console.log(data, "data");
         dispatch((0, exports.setToken)(data["access_token"]));
     })
         .catch(function (error) {
@@ -809,7 +804,7 @@ var Icons_1 = __webpack_require__(5);
 var Break_1 = __webpack_require__(38);
 var Text_1 = __webpack_require__(9);
 var interface_1 = __webpack_require__(3);
-var CLIENT_ID = 'undefined';
+var CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 function UserBlock(_a) {
     var avatarSrc = _a.avatarSrc, username = _a.username, loading = _a.loading;
     return (react_1.default.createElement("a", { href: "https://www.reddit.com/api/v1/authorize?client_id=".concat(CLIENT_ID, "&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity"), className: userblock_css_1.default.userBox },
@@ -2363,7 +2358,6 @@ function Post(_a) {
     var onClose = _a.onClose, selftext = _a.selftext, id = _a.id, title = _a.title;
     var commentary = (0, useCommentData_1.useCommentData)(id);
     var _b = (0, react_1.useState)(""), openComment = _b[0], setOpenComment = _b[1];
-    console.log("comm", commentary);
     var ref = (0, react_1.useRef)(null);
     var navigate = (0, react_router_dom_1.useNavigate)();
     var loading = (0, effector_react_1.useStore)(store_1.$loading);

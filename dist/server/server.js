@@ -807,7 +807,7 @@ var interface_1 = __webpack_require__(3);
 var CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 function UserBlock(_a) {
     var avatarSrc = _a.avatarSrc, username = _a.username, loading = _a.loading;
-    return (react_1.default.createElement("a", { href: "https://www.reddit.com/api/v1/authorize?client_id=".concat(CLIENT_ID, "&response_type=code&state=random_string&redirect_uri=https://reddit-mirror.onrender.com/authauth&duration=permanent&scope=read submit identity"), className: userblock_css_1.default.userBox },
+    return (react_1.default.createElement("a", { href: "https://www.reddit.com/api/v1/authorize?client_id=".concat(CLIENT_ID, "&response_type=code&state=random_string&redirect_uri=https://reddit-mirror.onrender.com/auth&duration=permanent&scope=read submit identity"), className: userblock_css_1.default.userBox },
         react_1.default.createElement("div", { className: userblock_css_1.default.avatarBox }, avatarSrc ? react_1.default.createElement("img", { src: avatarSrc, alt: "user avatar", className: userblock_css_1.default.avatarImage }) : react_1.default.createElement(Icons_1.IconAnon, null)),
         react_1.default.createElement("div", { className: userblock_css_1.default.username },
             react_1.default.createElement(Break_1.Break, { size: 12 }),

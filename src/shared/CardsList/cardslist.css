@@ -1,0 +1,13 @@
+@media all and (min-width: 1024px) {
+  .cardsList {
+    padding: 40px 0;
+  }
+}
+.cardsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.error {
+  text-align: center;
+}

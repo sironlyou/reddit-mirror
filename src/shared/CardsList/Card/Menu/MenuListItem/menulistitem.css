@@ -1,0 +1,19 @@
+.menuItemsList {
+  padding: 0 20px;
+}
+
+.menuItem {
+  padding: 12px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.menuItem > span:not(:first-child) {
+  margin-left: 3px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--greyEC);
+}

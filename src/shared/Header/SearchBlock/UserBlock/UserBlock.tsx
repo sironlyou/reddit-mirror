@@ -5,7 +5,7 @@ import { Break } from "../../../Break";
 import { Text } from "../../../Text";
 import { Ecolor, IUserBlockProps } from "../../../../utils/ts/interface";
 
-const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 export function UserBlock({ avatarSrc, username, loading }: IUserBlockProps) {
   return (
     <a

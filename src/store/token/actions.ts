@@ -4,7 +4,7 @@ import { RootState } from "../reducer";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 export const SET_TOKEN = "SET_TOKEN";
 export type SetTokenAction = {
   type: typeof SET_TOKEN;

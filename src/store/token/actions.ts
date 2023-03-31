@@ -5,6 +5,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
+// const CLIENT_ID = "OywO6QITvrp4dKPWixRWXQ";
+
 export const SET_TOKEN = "SET_TOKEN";
 export type SetTokenAction = {
   type: typeof SET_TOKEN;
@@ -33,12 +35,17 @@ export const saveToken = (): ThunkAction<void, RootState, unknown, Action<string
   if (pathname !== "/auth") return;
 
   axios
-    .post("https://www.reddit.com/api/v1/access_token", `grant_type=authorization_code&code=${code}&redirect_uri=https://my-reddit-mirror.onrender.com/auth`, {
+    .post("https://www.reddit.com/api/v1/access_token", `grant_type=authorization_code&code=${code}&redirect_uri=https://reddit-mirror.onrender.com/auth`, {
       auth: { username: CLIENT_ID, password: "ECtgFqN-8hFphYBAqVJaZBzU-VsRcQ" },
       headers: { "Content-type": "application/x-www-form-urlencoded" },
     })
+    // .post("https://www.reddit.com/api/v1/access_token", `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/auth`, {
+    //   auth: { username: CLIENT_ID, password: "WZr35mDrmGDIuk40CoVfIIXfjPyaPA" },
+    //   headers: { "Content-type": "application/x-www-form-urlencoded" },
+    // })
     .then(({ data }) => {
       dispatch(setToken(data["access_token"]));
+      localStorage.setItem("token", data["access_token"]);
     })
     .catch((error) => {
       console.log(error);

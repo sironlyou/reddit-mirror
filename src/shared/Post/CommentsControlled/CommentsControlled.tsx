@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import React, { ChangeEvent, FormEvent, useEffect, useRef } from "react";
-import { $comment, updateComment } from "../../../store/effector store/store";
+import { $comment, updateComment, updateForm } from "../../../store/effector store/store";
 
 import styles from "./commentscontrolled.css";
 interface IProps {
@@ -20,6 +20,7 @@ export function CommentsControlled({ user }: IProps) {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    updateForm("closed");
   }
   if (ref == null) return null;
   return (

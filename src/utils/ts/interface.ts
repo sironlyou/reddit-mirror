@@ -60,6 +60,7 @@ export interface IComment {
     body: string;
     author: string;
     id: string;
+    created: number;
     replies: {
       data: {
         children: IComment[];
@@ -112,6 +113,7 @@ export interface IProps {
   openComment: string;
   setOpenComment: React.Dispatch<React.SetStateAction<string>>;
 }
+
 export enum Ecolor {
   black = "black",
   orange = "orange",

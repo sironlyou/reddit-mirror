@@ -7,9 +7,12 @@ import { RootState } from "../store/reducer";
 
 export const useCommentData = (id: string) => {
   const comments = useStore($comments);
-  const token = useSelector<RootState, string>((state) => state.token.value);
+  const localToken = localStorage.getItem("token");
+
+  const token = useSelector<RootState, string>((state) => state.token.value) || localToken;
   useEffect(() => {
     async function load() {
+      updateLoading(true);
       try {
         const children = await axios
           .get(`https://oauth.reddit.com/comments/${id}.json`, {

@@ -10,8 +10,8 @@ import { useStore } from "effector-react";
 import { $id, $selftext, $title } from "../../store/effector store/store";
 export function CardsList() {
   const bottomOfList = useRef(null);
-  const token = useSelector<RootState, string>((state) => state.token.value);
-
+  const localToken = localStorage.getItem("token");
+  const token = useSelector<RootState, string>((state) => state.token.value) || localToken;
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [errorLoading, setErrorLoading] = useState("");
@@ -64,7 +64,7 @@ export function CardsList() {
 
   return (
     <ul className={styles.cardsList}>
-      {posts.length === 0 && !loading && !errorLoading && <div className={styles.error}>Please log in to see posts</div>}
+      {posts.length === 0 && !loading && !errorLoading && <div>Please log in to see posts</div>}
       {posts.map((post) => (
         <Card
           key={post.data.id}
@@ -80,7 +80,7 @@ export function CardsList() {
       ))}
       <div ref={bottomOfList}></div>
 
-      {loading && <div className={styles.error}>Loading...</div>}
+      {loading && <div className={styles.loader}></div>}
       {errorLoading && (
         <div role="alert" className={styles.error}>
           {errorLoading}

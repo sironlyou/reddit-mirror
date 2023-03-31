@@ -31,7 +31,7 @@ export function CommentForm() {
       />
       {errors.comment && <span>enter more that 3 symbols</span>}
       <button type="submit" className={styles.button}>
-        comment
+        Комментировать
       </button>
     </form>
   );

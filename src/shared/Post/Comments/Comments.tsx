@@ -1,20 +1,29 @@
-import React, { useRef } from "react";
-import { updateComment } from "../../../store/effector store/store";
+import React, { useRef, useState } from "react";
+import { useStore } from "effector-react";
+import { $formState, updateComment, updateForm } from "../../../store/effector store/store";
+import { getTimeFromTimestamp } from "../../../utils/ts/getTimeFromTimestamp";
 import { IProps } from "../../../utils/ts/interface";
 import { CommentIcon } from "../../Icons";
 import { CommentsControlled } from "../CommentsControlled";
 
 export function Comments({ props, number, setOpenComment, openComment }: IProps) {
   const ref = useRef<HTMLButtonElement>(null);
-  return number === 4 ? null : (
+  const formState = useStore($formState);
+  return number === 2 ? null : (
     <div>
       {props.length !== 0 &&
         props.map((item, index) => (
-          <div>
+          <div className="comment">
             {item.data.body !== undefined && (
-              <div className="card" style={{ marginLeft: 10 + number * 10 }}>
-                <p>Author username: {item.data?.author}</p>
-                <p>comment: {item.data?.body}</p>
+              <div style={{ border: "gray 1px solid", marginBottom: 10, padding: 15 }}>
+                <div>
+                  <span className="user" style={{ marginRight: 10 }}>
+                    {item.data?.author}
+                  </span>
+                  <span>{getTimeFromTimestamp(item.data?.created)} назад</span>
+                </div>
+                <p className="comenttext"> {item.data?.body}</p>
+                <div></div>
                 <button
                   type="button"
                   ref={ref}
@@ -22,17 +31,11 @@ export function Comments({ props, number, setOpenComment, openComment }: IProps)
                     e.stopPropagation();
                     updateComment(item.data?.author + ", ");
                     setOpenComment(item.data.id);
+                    updateForm("open");
                   }}>
-                  Ответить <CommentIcon />
+                  <span style={{ marginRight: 5, display: "flex", alignItems: "center" }}> Ответить </span> <CommentIcon />
                 </button>
-                {openComment == item.data.id && <CommentsControlled user={item.data?.author} />}
-
-                {item.data !== undefined &&
-                  item.data.replies !== undefined &&
-                  item.data.replies.data !== undefined &&
-                  item.data.replies.data.children !== undefined && (
-                    <Comments openComment={openComment} setOpenComment={setOpenComment} number={++number} props={item.data.replies.data.children} />
-                  )}
+                {openComment == item.data.id && formState === "open" && <CommentsControlled user={item.data?.author} />}
               </div>
             )}
           </div>

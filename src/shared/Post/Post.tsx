@@ -11,9 +11,7 @@ import { IComment, IPostProps } from "../../utils/ts/interface";
 
 export function Post({ onClose, selftext, id, title }: IPostProps) {
   const commentary: IComment[] = useCommentData(id);
-
   const [openComment, setOpenComment] = useState<string>("");
-
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const loading = useStore($loading);
@@ -35,18 +33,18 @@ export function Post({ onClose, selftext, id, title }: IPostProps) {
   const node = document.querySelector("#modal_root");
   if (!node) return null;
   return ReactDOM.createPortal(
-    <div className={styles.modal} ref={ref}>
-      {loading && (
-        <div style={{ width: "100%", height: 160, display: "flex", alignItems: "center", textAlign: "center", justifyContent: "center" }}>loading...</div>
-      )}
-      {!loading && (
-        <div>
-          <div className={styles.content}>
-            <h2>{title}</h2>
-            <p>{selftext}</p>
+    <div>
+      {loading && <div className={styles.loader}></div>}
+      {!loading && commentary.length > 0 && (
+        <div className={styles.modal} ref={ref}>
+          <div>
+            <div className={styles.content}>
+              <h2 className={styles.header}>{title}</h2>
+              <p>{selftext}</p>
+            </div>
+            <CommentForm />
+            <Comments openComment={openComment} setOpenComment={setOpenComment} number={0} props={commentary} />
           </div>
-          <CommentForm />
-          <Comments openComment={openComment} setOpenComment={setOpenComment} number={0} props={commentary} />
         </div>
       )}
     </div>,

@@ -6,10 +6,13 @@ import { Text } from "../../../Text";
 import { Ecolor, IUserBlockProps } from "../../../../utils/ts/interface";
 
 const CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
+// const CLIENT_ID = "OywO6QITvrp4dKPWixRWXQ";
+
 export function UserBlock({ avatarSrc, username, loading }: IUserBlockProps) {
   return (
     <a
-      href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=https://my-reddit-mirror.onrender.com/auth&duration=permanent&scope=read submit identity`}
+      // href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=https://localhost:3000/auth&duration=permanent&scope=read submit identity`}
+      href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=https://reddit-mirror.onrender.com/auth&duration=permanent&scope=read submit identity`}
       className={styles.userBox}>
       <div className={styles.avatarBox}>{avatarSrc ? <img src={avatarSrc} alt="user avatar" className={styles.avatarImage} /> : <IconAnon />}</div>
       <div className={styles.username}>
@@ -20,7 +23,7 @@ export function UserBlock({ avatarSrc, username, loading }: IUserBlockProps) {
           </Text>
         ) : (
           <Text size={20} color={username ? Ecolor.black : Ecolor.grey99}>
-            {username || "Аноним"}
+            {username || "Войти"}
           </Text>
         )}
       </div>

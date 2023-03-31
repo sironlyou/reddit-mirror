@@ -20,3 +20,5 @@ export const updateTitle = createEvent<string>();
 export const $title = createStore<string>("").on(updateTitle, (_, newTitle) => newTitle);
 export const updateLoading = createEvent<boolean>();
 export const $loading = createStore<boolean>(false).on(updateLoading, (_, newLoading) => newLoading);
+export const updateForm = createEvent<string>();
+export const $formState = createStore<string>("").on(updateForm, (_, newForm) => newForm);

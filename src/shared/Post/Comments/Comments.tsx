@@ -25,6 +25,7 @@ export function Comments({ props, number, setOpenComment, openComment }: IProps)
                 <p className="comenttext"> {item.data?.body}</p>
                 <div></div>
                 <button
+                  style={{ display: "flex", alignItems: "center" }}
                   type="button"
                   ref={ref}
                   onClick={(e) => {
@@ -33,7 +34,7 @@ export function Comments({ props, number, setOpenComment, openComment }: IProps)
                     setOpenComment(item.data.id);
                     updateForm("open");
                   }}>
-                  <span style={{ marginRight: 5, display: "flex", alignItems: "center" }}> Ответить </span> <CommentIcon />
+                  <span style={{ marginRight: 5 }}> Ответить </span> <CommentIcon />
                 </button>
                 {openComment == item.data.id && formState === "open" && <CommentsControlled user={item.data?.author} />}
               </div>

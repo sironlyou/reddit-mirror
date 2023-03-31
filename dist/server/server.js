@@ -135,7 +135,7 @@ module.exports = require("react-redux");
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Ecolor = exports.components = exports.EIcons = void 0;
-var Icons_1 = __webpack_require__(6);
+var Icons_1 = __webpack_require__(7);
 var EIcons;
 (function (EIcons) {
     EIcons["block"] = "block";
@@ -170,16 +170,22 @@ var Ecolor;
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("effector-react");
+module.exports = require("react-router-dom");
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("axios");
+module.exports = require("effector-react");
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -207,12 +213,6 @@ __exportStar(__webpack_require__(38), exports);
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-router-dom");
-
-/***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -223,7 +223,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.saveToken = exports.setTokenError = exports.SET_TOKEN_ERROR = exports.setToken = exports.SET_TOKEN = void 0;
-var axios_1 = __importDefault(__webpack_require__(5));
+var axios_1 = __importDefault(__webpack_require__(6));
 var CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 // const CLIENT_ID = "OywO6QITvrp4dKPWixRWXQ";
 exports.SET_TOKEN = "SET_TOKEN";
@@ -303,7 +303,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.meRequestAsync = exports.meRequestError = exports.ME_REQUEST_ERROR = exports.meRequestSuccess = exports.ME_REQUEST_SUCCESS = exports.meRequest = exports.ME_REQUEST = void 0;
-var axios_1 = __importDefault(__webpack_require__(5));
+var axios_1 = __importDefault(__webpack_require__(6));
 exports.ME_REQUEST = "ME_REQUEST";
 var meRequest = function () { return ({
     type: exports.ME_REQUEST,
@@ -475,7 +475,7 @@ var react_redux_1 = __webpack_require__(2);
 var redux_devtools_extension_1 = __webpack_require__(105);
 var reducer_1 = __webpack_require__(106);
 var redux_thunk_1 = __importDefault(__webpack_require__(109));
-var react_router_dom_1 = __webpack_require__(7);
+var react_router_dom_1 = __webpack_require__(4);
 var NotFound_1 = __webpack_require__(110);
 var store = (0, redux_1.createStore)(reducer_1.rootReducer, (0, redux_devtools_extension_1.composeWithDevTools)((0, redux_1.applyMiddleware)(redux_thunk_1.default)));
 function AppComponent() {
@@ -832,7 +832,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserBlock = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var userblock_css_1 = __importDefault(__webpack_require__(33));
-var Icons_1 = __webpack_require__(6);
+var Icons_1 = __webpack_require__(7);
 var Break_1 = __webpack_require__(39);
 var Text_1 = __webpack_require__(9);
 var interface_1 = __webpack_require__(3);
@@ -1341,11 +1341,11 @@ exports.CardsList = void 0;
 var react_1 = __importStar(__webpack_require__(0));
 var cardslist_css_1 = __importDefault(__webpack_require__(53));
 var Card_1 = __webpack_require__(54);
-var axios_1 = __importDefault(__webpack_require__(5));
+var axios_1 = __importDefault(__webpack_require__(6));
 var react_redux_1 = __webpack_require__(2);
-var react_router_dom_1 = __webpack_require__(7);
+var react_router_dom_1 = __webpack_require__(4);
 var Post_1 = __webpack_require__(91);
-var effector_react_1 = __webpack_require__(4);
+var effector_react_1 = __webpack_require__(5);
 var store_1 = __webpack_require__(1);
 function CardsList() {
     var bottomOfList = (0, react_1.useRef)(null);
@@ -1663,7 +1663,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Title = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var title_css_1 = __importDefault(__webpack_require__(65));
-var react_router_dom_1 = __webpack_require__(7);
+var react_router_dom_1 = __webpack_require__(4);
 var store_1 = __webpack_require__(1);
 function Title(_a) {
     var title = _a.title, id = _a.id, selftext = _a.selftext;
@@ -1759,7 +1759,7 @@ var menu_css_1 = __importDefault(__webpack_require__(69));
 var MenuListItem_1 = __webpack_require__(70);
 var Dropdown_1 = __webpack_require__(76);
 var Text_1 = __webpack_require__(9);
-var Icons_1 = __webpack_require__(6);
+var Icons_1 = __webpack_require__(7);
 var interface_1 = __webpack_require__(3);
 function Menu() {
     var _a, _b, _c, _d;
@@ -2364,11 +2364,11 @@ exports.Post = void 0;
 var react_1 = __importStar(__webpack_require__(0));
 var post_css_1 = __importDefault(__webpack_require__(93));
 var react_dom_1 = __importDefault(__webpack_require__(13));
-var effector_react_1 = __webpack_require__(4);
+var effector_react_1 = __webpack_require__(5);
 var store_1 = __webpack_require__(1);
 var Comments_1 = __webpack_require__(94);
 var useCommentData_1 = __webpack_require__(99);
-var react_router_dom_1 = __webpack_require__(7);
+var react_router_dom_1 = __webpack_require__(4);
 var CommentForm_1 = __webpack_require__(100);
 function Post(_a) {
     var onClose = _a.onClose, selftext = _a.selftext, id = _a.id, title = _a.title;
@@ -2486,10 +2486,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Comments = void 0;
 var react_1 = __importStar(__webpack_require__(0));
-var effector_react_1 = __webpack_require__(4);
+var effector_react_1 = __webpack_require__(5);
 var store_1 = __webpack_require__(1);
 var getTimeFromTimestamp_1 = __webpack_require__(12);
-var Icons_1 = __webpack_require__(6);
+var Icons_1 = __webpack_require__(7);
 var CommentsControlled_1 = __webpack_require__(96);
 function Comments(_a) {
     var props = _a.props, number = _a.number, setOpenComment = _a.setOpenComment, openComment = _a.openComment;
@@ -2508,14 +2508,14 @@ function Comments(_a) {
                     " ", (_c = item.data) === null || _c === void 0 ? void 0 :
                     _c.body),
                 react_1.default.createElement("div", null),
-                react_1.default.createElement("button", { type: "button", ref: ref, onClick: function (e) {
+                react_1.default.createElement("button", { style: { display: "flex", alignItems: "center" }, type: "button", ref: ref, onClick: function (e) {
                         var _a;
                         e.stopPropagation();
                         (0, store_1.updateComment)(((_a = item.data) === null || _a === void 0 ? void 0 : _a.author) + ", ");
                         setOpenComment(item.data.id);
                         (0, store_1.updateForm)("open");
                     } },
-                    react_1.default.createElement("span", { style: { marginRight: 5, display: "flex", alignItems: "center" } }, " \u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C "),
+                    react_1.default.createElement("span", { style: { marginRight: 5 } }, " \u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C "),
                     " ",
                     react_1.default.createElement(Icons_1.CommentIcon, null)),
                 openComment == item.data.id && formState === "open" && react_1.default.createElement(CommentsControlled_1.CommentsControlled, { user: (_d = item.data) === null || _d === void 0 ? void 0 : _d.author })))));
@@ -2582,7 +2582,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommentsControlled = void 0;
-var effector_react_1 = __webpack_require__(4);
+var effector_react_1 = __webpack_require__(5);
 var react_1 = __importStar(__webpack_require__(0));
 var store_1 = __webpack_require__(1);
 var commentscontrolled_css_1 = __importDefault(__webpack_require__(98));
@@ -2671,14 +2671,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useCommentData = void 0;
-var axios_1 = __importDefault(__webpack_require__(5));
-var effector_react_1 = __webpack_require__(4);
+var axios_1 = __importDefault(__webpack_require__(6));
+var effector_react_1 = __webpack_require__(5);
 var react_1 = __webpack_require__(0);
 var react_redux_1 = __webpack_require__(2);
+var react_router_dom_1 = __webpack_require__(4);
 var store_1 = __webpack_require__(1);
 var useCommentData = function (id) {
     var comments = (0, effector_react_1.useStore)(store_1.$comments);
     var localToken = localStorage.getItem("token");
+    var navigate = (0, react_router_dom_1.useNavigate)();
     var token = (0, react_redux_1.useSelector)(function (state) { return state.token.value; }) || localToken;
     (0, react_1.useEffect)(function () {
         function load() {
@@ -2687,6 +2689,10 @@ var useCommentData = function (id) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
+                            if (id === "")
+                                navigate("/posts");
+                            if (id === "")
+                                return [2 /*return*/];
                             (0, store_1.updateLoading)(true);
                             _a.label = 1;
                         case 1:

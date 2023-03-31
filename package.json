@@ -12,8 +12,8 @@
     "deploy": "gh-pages -d build:dev",
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=development CLIENT_ID=TtTT3iNgIdJIJ1X2EwAlBA node ./bin/dev.js",
-    "devp": "cross-env NODE_ENV=development CLIENT_ID=OywO6QITvrp4dKPWixRWXQ node ./bin/dev.js",
+    "devp": "cross-env NODE_ENV=development CLIENT_ID=TtTT3iNgIdJIJ1X2EwAlBA node ./bin/dev.js",
+    "dev": "cross-env NODE_ENV=development CLIENT_ID=OywO6QITvrp4dKPWixRWXQ node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./dist/server/server.js"
   },

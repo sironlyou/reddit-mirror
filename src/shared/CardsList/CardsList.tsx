@@ -63,32 +63,38 @@ export function CardsList() {
   }, [nextAfter, token]);
 
   return (
-    <ul className={styles.cardsList}>
-      {posts.length === 0 && !loading && !errorLoading && <div>Please log in to see posts</div>}
-      {posts.map((post) => (
-        <Card
-          key={post.data.id}
-          title={post.data.title}
-          author={post.data.author}
-          createdAt={post.data.created}
-          karma={post.data.ups}
-          thumbnail={post.data.thumbnail}
-          permalink={post.data.permalink}
-          id={post.data.id}
-          selftext={post.data.selftext}
-        />
-      ))}
-      <div ref={bottomOfList}></div>
-
-      {loading && <div className={styles.loader}></div>}
-      {errorLoading && (
-        <div role="alert" className={styles.error}>
-          {errorLoading}
+    <>
+      {posts.length === 0 && !loading && !errorLoading && (
+        <div style={{ fontSize: 22, backgroundColor: "var(--grayF4)", height: 100, display: "flex", justifyContent: "center", alignItems: "center" }}>
+          Please log in to see posts
         </div>
       )}
-      <Routes>
-        <Route path="/:id" element={<Post id={id} selftext={selftext} title={title} />}></Route>
-      </Routes>
-    </ul>
+      <ul className={styles.cardsList}>
+        {posts.map((post) => (
+          <Card
+            key={post.data.id}
+            title={post.data.title}
+            author={post.data.author}
+            createdAt={post.data.created}
+            karma={post.data.ups}
+            thumbnail={post.data.thumbnail}
+            permalink={post.data.permalink}
+            id={post.data.id}
+            selftext={post.data.selftext}
+          />
+        ))}
+        <div ref={bottomOfList}></div>
+
+        {loading && <div className={styles.loader}></div>}
+        {errorLoading && (
+          <div role="alert" className={styles.error}>
+            {errorLoading}
+          </div>
+        )}
+        <Routes>
+          <Route path="/:id" element={<Post id={id} selftext={selftext} title={title} />}></Route>
+        </Routes>
+      </ul>
+    </>
   );
 }

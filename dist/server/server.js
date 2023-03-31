@@ -841,12 +841,12 @@ var CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 function UserBlock(_a) {
     var avatarSrc = _a.avatarSrc, username = _a.username, loading = _a.loading;
     return (react_1.default.createElement("a", { 
-        // href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=https://localhost:3000/auth&duration=permanent&scope=read submit identity`}
+        // href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity`}
         href: "https://www.reddit.com/api/v1/authorize?client_id=".concat(CLIENT_ID, "&response_type=code&state=random_string&redirect_uri=https://reddit-mirror.onrender.com/auth&duration=permanent&scope=read submit identity"), className: userblock_css_1.default.userBox },
         react_1.default.createElement("div", { className: userblock_css_1.default.avatarBox }, avatarSrc ? react_1.default.createElement("img", { src: avatarSrc, alt: "user avatar", className: userblock_css_1.default.avatarImage }) : react_1.default.createElement(Icons_1.IconAnon, null)),
         react_1.default.createElement("div", { className: userblock_css_1.default.username },
             react_1.default.createElement(Break_1.Break, { size: 12 }),
-            loading ? (react_1.default.createElement(Text_1.Text, { size: 20, color: interface_1.Ecolor.grey99 }, "\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0430")) : (react_1.default.createElement(Text_1.Text, { size: 20, color: username ? interface_1.Ecolor.black : interface_1.Ecolor.grey99 }, username || "Войти")))));
+            loading ? (react_1.default.createElement(Text_1.Text, { size: 20, color: interface_1.Ecolor.grey99 }, "\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0430...")) : (react_1.default.createElement(Text_1.Text, { size: 20, color: username ? interface_1.Ecolor.black : interface_1.Ecolor.grey99 }, username || "Войти")))));
 }
 exports.UserBlock = UserBlock;
 
@@ -1409,14 +1409,15 @@ function CardsList() {
                 observer.unobserve(bottomOfList.current);
         };
     }, [nextAfter, token]);
-    return (react_1.default.createElement("ul", { className: cardslist_css_1.default.cardsList },
-        posts.length === 0 && !loading && !errorLoading && react_1.default.createElement("div", null, "Please log in to see posts"),
-        posts.map(function (post) { return (react_1.default.createElement(Card_1.Card, { key: post.data.id, title: post.data.title, author: post.data.author, createdAt: post.data.created, karma: post.data.ups, thumbnail: post.data.thumbnail, permalink: post.data.permalink, id: post.data.id, selftext: post.data.selftext })); }),
-        react_1.default.createElement("div", { ref: bottomOfList }),
-        loading && react_1.default.createElement("div", { className: cardslist_css_1.default.loader }),
-        errorLoading && (react_1.default.createElement("div", { role: "alert", className: cardslist_css_1.default.error }, errorLoading)),
-        react_1.default.createElement(react_router_dom_1.Routes, null,
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/:id", element: react_1.default.createElement(Post_1.Post, { id: id, selftext: selftext, title: title }) }))));
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        posts.length === 0 && !loading && !errorLoading && (react_1.default.createElement("div", { style: { fontSize: 22, backgroundColor: "var(--grayF4)", height: 100, display: "flex", justifyContent: "center", alignItems: "center" } }, "Please log in to see posts")),
+        react_1.default.createElement("ul", { className: cardslist_css_1.default.cardsList },
+            posts.map(function (post) { return (react_1.default.createElement(Card_1.Card, { key: post.data.id, title: post.data.title, author: post.data.author, createdAt: post.data.created, karma: post.data.ups, thumbnail: post.data.thumbnail, permalink: post.data.permalink, id: post.data.id, selftext: post.data.selftext })); }),
+            react_1.default.createElement("div", { ref: bottomOfList }),
+            loading && react_1.default.createElement("div", { className: cardslist_css_1.default.loader }),
+            errorLoading && (react_1.default.createElement("div", { role: "alert", className: cardslist_css_1.default.error }, errorLoading)),
+            react_1.default.createElement(react_router_dom_1.Routes, null,
+                react_1.default.createElement(react_router_dom_1.Route, { path: "/:id", element: react_1.default.createElement(Post_1.Post, { id: id, selftext: selftext, title: title }) })))));
 }
 exports.CardsList = CardsList;
 

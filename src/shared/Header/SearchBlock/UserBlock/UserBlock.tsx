@@ -11,7 +11,7 @@ const CLIENT_ID = "TtTT3iNgIdJIJ1X2EwAlBA";
 export function UserBlock({ avatarSrc, username, loading }: IUserBlockProps) {
   return (
     <a
-      // href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=https://localhost:3000/auth&duration=permanent&scope=read submit identity`}
+      // href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity`}
       href={`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=random_string&redirect_uri=https://reddit-mirror.onrender.com/auth&duration=permanent&scope=read submit identity`}
       className={styles.userBox}>
       <div className={styles.avatarBox}>{avatarSrc ? <img src={avatarSrc} alt="user avatar" className={styles.avatarImage} /> : <IconAnon />}</div>
@@ -19,7 +19,7 @@ export function UserBlock({ avatarSrc, username, loading }: IUserBlockProps) {
         <Break size={12} />
         {loading ? (
           <Text size={20} color={Ecolor.grey99}>
-            загрузка
+            загрузка...
           </Text>
         ) : (
           <Text size={20} color={username ? Ecolor.black : Ecolor.grey99}>
